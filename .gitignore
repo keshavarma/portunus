@@ -1,0 +1,38 @@
+# Node
+node_modules
+dist
+.env
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Docker
+*.log
+*.pid
+
+# OS
+*.swp
+*.swo
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# Logs
+*.log
+logs/
+
+# Coverage
+.coverage
+coverage/
+
+# K8s
+*.yaml~
