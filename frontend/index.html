@@ -1,11 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portunus - Mystic File Sharing</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 </head>
-<body>
-    
+<body class="bg-gradient-to-br from-purple-900 via-purple-600 to-purple-800 font-[Poppins] text-white overflow-x-hidden">
+    <!-- Pulsing Ripples from Logo -->
+<!-- Pulsing Ripples from Logo -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+  <div class="ripple-container relative w-[400px] h-[400px]">
+    <span class="ripple ripple1"></span>
+    <span class="ripple ripple2"></span>
+    <span class="ripple ripple3"></span>
+    <span class="ripple ripple4"></span>
+    <span class="ripple ripple5"></span>
+    <span class="ripple ripple6"></span>
+    <span class="ripple ripple7"></span>
+  </div>
+</div>
+
+
+
+
+  <div id="app" class="min-h-screen flex flex-col items-center justify-center text-center relative">
+    <!-- Logo -->
+    <img src="../logo.png" alt="Portunus Logo" class="w-24 mb-4 animate-pulse" />
+
+    <!-- Room Info + Editable Username -->
+    <div class="mb-4 text-sm">
+      Room: <span id="roomCode" class="font-mono">AB12XY</span> | 
+      Username: <span id="username" contenteditable="true" class="underline cursor-pointer hover:text-purple-300">MoonCrab42</span>
+    </div>
+
+    <!-- Buttons -->
+    <div class="space-x-4">
+      <button id="sendBtn" class="px-6 py-2 rounded-full bg-purple-600 hover:bg-purple-700 shadow-lg hover:shadow-purple-500/50 transition">Send File</button>
+      <button id="receiveBtn" class="px-6 py-2 rounded-full bg-purple-600 hover:bg-purple-700 shadow-lg hover:shadow-purple-500/50 transition">Receive File</button>
+    </div>
+
+    <!-- File Input Panel -->
+    <div id="sendPanel" class="hidden mt-6 w-full max-w-md p-4 bg-purple-800/30 rounded-lg backdrop-blur-md">
+      <input type="file" id="fileInput" class="w-full mb-3 text-white" />
+      <div id="sendStatus" class="text-xs text-purple-300">Waiting to select file...</div>
+    </div>
+
+    <!-- Receive Panel -->
+    <div id="receivePanel" class="hidden mt-6 w-full max-w-md p-4 bg-purple-800/30 rounded-lg backdrop-blur-md">
+      <div id="receiveStatus" class="text-xs text-purple-300">Waiting for file...</div>
+    </div>
+
+    <!-- Room Modal Trigger -->
+    <button id="roomSwitchBtn" class="absolute top-4 right-4 text-xl">🔗</button>
+
+    <!-- Room Modal -->
+    <div id="roomModal" class="hidden absolute top-16 right-4 bg-purple-900 p-4 rounded-lg shadow-md w-72">
+      <input type="text" id="newRoomInput" placeholder="Enter Room Code" class="w-full p-2 rounded bg-purple-700 text-white mb-2" />
+      <button id="joinRoomBtn" class="w-full bg-purple-600 hover:bg-purple-700 p-2 rounded mb-2">Join Room</button>
+      <div id="qrcode" class="flex justify-center"></div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
 </body>
 </html>
+

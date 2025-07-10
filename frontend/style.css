@@ -1,0 +1,74 @@
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle, rgba(175, 82, 222, 0.1), transparent);
+  z-index: -1;
+  animation: portalBg 12s infinite ease-in-out;
+}
+
+@keyframes portalBg {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Add glowing effect */
+#app {
+  box-shadow: 0 0 30px rgba(186, 113, 255, 0.4);
+  border-radius: 2rem;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* style the editable username */
+#username:focus {
+  outline: none;
+  color: #d8b4fe;
+}
+
+.ripple-container {
+  position: relative;
+}
+
+.ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+  animation: rippleAnim 8s linear infinite;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
+}
+
+.ripple1 { animation-delay: 0s; }
+.ripple2 { animation-delay: 1.2s; }
+.ripple3 { animation-delay: 2.4s; }
+.ripple4 { animation-delay: 3.6s; }
+.ripple5 { animation-delay: 4.8s; }
+.ripple6 { animation-delay: 6s; }
+.ripple7 { animation-delay: 7.2s; }
+
+@keyframes rippleAnim {
+  0% {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0.4;
+  }
+  70% {
+    opacity: 0.05;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(24);
+    opacity: 0;
+  }
+}
+
